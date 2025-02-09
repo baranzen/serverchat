@@ -29,8 +29,8 @@ export class AuthService {
         if (!user) {
             throw new UnauthorizedException();
         }
-        say.stop();
-        say.speak(`Kullanıcı ${user.username} giriş yaptı!`, 'Yelda', 1);
+        // say.stop();
+        // say.speak(`Kullanıcı ${user.username} giriş yaptı!`, 'Yelda', 1);
         return this.signIn(user);
     }
 
@@ -49,6 +49,7 @@ export class AuthService {
             username: user.username,
         }
 
+        // ilerde burada cihazin unique id si gelecek jwt icine boylelikle cihaza gore banlanabilir
         const accessToken = await this.jwtService.signAsync(tokenPayload);
 
         return { access_token: accessToken, userId: user.userId, username: user.username };
