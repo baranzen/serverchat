@@ -22,6 +22,6 @@ export class AuthController {
     @Get('me')
     getUserInfo(@Request() request) {
         console.log('request', request);
-        return request.user;
+        return request.user; // returns users token payload
     }
 }
