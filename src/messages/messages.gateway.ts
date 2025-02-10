@@ -39,6 +39,7 @@ export class MessagesGateway {
     const users = this.messagesService.join(name, client.id);
     // Yeni kullanıcı katıldı bildirimi
     this.server.emit('userJoined', name);
+    console.log('Sending users:', users); // Debug için log ekledik
     return users; // Online kullanıcı listesi
   }
 
